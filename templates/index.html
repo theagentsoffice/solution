@@ -2,10 +2,13 @@
 <html>
 <head>
     <title>Insurance Questionnaire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
             font-family: "Arial", sans-serif;
             background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
@@ -25,7 +28,7 @@
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
         }
 
@@ -34,10 +37,13 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
         }
 
         input[type="radio"], input[type="checkbox"] {
             margin-right: 10px;
+            margin-bottom: 21px;
         }
 
         input[type="submit"] {
@@ -48,20 +54,40 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
+            position: relative;
+        }
+
+        input[id="submit"]::before {
+            content: "\f072"; /* Unicode for airplane icon */
+            font-family: "Font Awesome 5 Free";
+            margin-right: 10px;
         }
 
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
 
-        /* Add animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(-10px); }
-            100% { opacity: 1; transform: translateY(0); }
+        input[type="submitt"]:hover::before {
+            transform: rotate(45deg);
         }
 
-        form {
-            animation: fadeIn 0.5s ease-in-out;
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #007bff;
+        }
+
+        input[type="radio"]:hover,
+        input[type="checkbox"]:hover {
+            transform: scale(1.1);
+        }
+
+        input[type="radio"]:checked::before {
+            content: "\2713";
+            font-size: 16px;
+            padding-right: 5px;
+            color: #007bff;
         }
     </style>
 </head>
@@ -70,6 +96,7 @@
     <form method="post" action="/submit_form">
         <label for="age">Age:</label>
         <input type="number" name="age" id="age" min="18" max="90" required>
+        <br>
 
         <label for="occupation">Occupation:</label>
         <select name="occupation" id="occupation" required>
@@ -77,6 +104,7 @@
             <option value="Self-Employed">Self-Employed</option>
             <option value="Unemployed">Unemployed</option>
         </select>
+        <br>
 
         <label for="marital_status">Marital Status:</label>
         <select name="marital_status" id="marital_status" required>
@@ -84,26 +112,32 @@
             <option value="Married">Married</option>
             <option value="Engaged">Engaged</option>
         </select>
+        <br>
 
         <label>Do You Have Children?</label>
         <input type="radio" name="children" value="Yes"> Yes
         <input type="radio" name="children" value="No"> No
+        <br>
 
         <label>Do You Own a Vehicle?</label>
         <input type="radio" name="vehicle" value="Yes"> Yes
         <input type="radio" name="vehicle" value="No"> No
+        <br>
 
         <label>Do You Own a House?</label>
         <input type="radio" name="house" value="Yes"> Yes
         <input type="radio" name="house" value="No"> No
+        <br>
 
         <label>Do You Own Rental Property?</label>
         <input type="radio" name="rental_property" value="Yes"> Yes
         <input type="radio" name="rental_property" value="No"> No
+        <br>
 
         <label>Do You Own Jewelry or Firearms in Excess of $1,000?</label>
         <input type="radio" name="jewelry_firearms" value="Yes"> Yes
         <input type="radio" name="jewelry_firearms" value="No"> No
+        <br>
 
         <label>Recent Life Events (Select all that apply):</label>
         <input type="checkbox" name="life_events" value="Job Change"> Job Change
@@ -111,11 +145,12 @@
         <input type="checkbox" name="life_events" value="Recently Relocated"> Recently Relocated
         <input type="checkbox" name="life_events" value="Just Bought a Home"> Just Bought a Home
         <input type="checkbox" name="life_events" value="Just Bought a New Car"> Just Bought a New Car
+        <br>
 
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" id="submitt">
     </form>
 </body>
 </html>
