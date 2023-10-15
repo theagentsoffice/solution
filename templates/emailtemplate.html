@@ -1,0 +1,60 @@
+<html>
+<head>
+    <style>
+        /* Add your fancy email styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        .header {
+            background-color: #e74c3c;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Insurance Policy</h1>
+            <p>Your Request</p>
+        </div>
+        <div class="content">
+            <h1>Insurance Questionnaire Submission</h1>
+    <p><strong>Age:</strong> {{ age }}</p>
+    <p><strong>Occupation:</strong> {{ occupation }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Marital Status:</strong> {{ marital_status }}</p>
+    <p><strong>Children:</strong> {{ children }}</p>
+    <p><strong>Vehicle:</strong> {{ vehicle }}</p>
+    <p><strong>House:</strong> {{ house }}</p>
+    <p><strong>Rental Property:</strong> {{ rental_property }}</p>
+    <p><strong>Jewelry/Firearms:</strong> {{ jewelry_firearms }}</p>
+    <p><strong>Life Events:</strong> {{ life_events | join(', ') }}</p>
+            
+        </div>
+        <div class="footer">
+            <p>All Rights Reserved Restaurant</p>
+        </div>
+    </div>
+</body>
+</html>

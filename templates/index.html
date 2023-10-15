@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Questionnaire</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select, input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Add animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        form {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insurance Questionnaire</h1>
+    <form method="post" action="/submit_form">
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" min="18" max="90" required>
+
+        <label for="occupation">Occupation:</label>
+        <select name="occupation" id="occupation" required>
+            <option value="Employed">Employed</option>
+            <option value="Self-Employed">Self-Employed</option>
+            <option value="Unemployed">Unemployed</option>
+        </select>
+
+        <label for="marital_status">Marital Status:</label>
+        <select name="marital_status" id="marital_status" required>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Engaged">Engaged</option>
+        </select>
+
+        <label>Do You Have Children?</label>
+        <input type="radio" name="children" value="Yes"> Yes
+        <input type="radio" name="children" value="No"> No
+
+        <label>Do You Own a Vehicle?</label>
+        <input type="radio" name="vehicle" value="Yes"> Yes
+        <input type="radio" name="vehicle" value="No"> No
+
+        <label>Do You Own a House?</label>
+        <input type="radio" name="house" value="Yes"> Yes
+        <input type="radio" name="house" value="No"> No
+
+        <label>Do You Own Rental Property?</label>
+        <input type="radio" name="rental_property" value="Yes"> Yes
+        <input type="radio" name="rental_property" value="No"> No
+
+        <label>Do You Own Jewelry or Firearms in Excess of $1,000?</label>
+        <input type="radio" name="jewelry_firearms" value="Yes"> Yes
+        <input type="radio" name="jewelry_firearms" value="No"> No
+
+        <label>Recent Life Events (Select all that apply):</label>
+        <input type="checkbox" name="life_events" value="Job Change"> Job Change
+        <input type="checkbox" name="life_events" value="Just Married"> Just Married
+        <input type="checkbox" name="life_events" value="Recently Relocated"> Recently Relocated
+        <input type="checkbox" name="life_events" value="Just Bought a Home"> Just Bought a Home
+        <input type="checkbox" name="life_events" value="Just Bought a New Car"> Just Bought a New Car
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
