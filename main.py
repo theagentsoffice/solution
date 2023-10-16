@@ -9,7 +9,9 @@ app.secret_key = 'klajdokfjwoeijoigjodjf5498wfej38eruf9'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = "expenditure.cob@gmail.com"
+
 app.config['MAIL_PASSWORD'] = "hrhdkdiwwzungmjz"
+
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
@@ -24,23 +26,23 @@ policy_recommendations = {
     'MARRIED': ['LIFE INSURANCE', 'PERSONAL ARTICLES POLICY'],
     'ENGAGED': ['PERSONAL ARTICLES POLICY'],
 
-    'YesChildren': ['LIFE INSURANCE', 'HOSPITAL INCOME POLICY', 'DISABILITY INSURANCE', 'PERSONAL LIABILITY UMBRELLA POLICY'],
-    'NoChildren': [],  # No recommendations for no children
+    'Yes': ['LIFE INSURANCE', 'HOSPITAL INCOME POLICY', 'DISABILITY INSURANCE', 'PERSONAL LIABILITY UMBRELLA POLICY'],
+    'No': [],  # No recommendations for no children or pets
 
-    'YesPets': ['PET MEDICAL INSURANCE', 'PERSONAL LIABILITY UMBRELLA POLICY'],
-    'NoPets': [],  # No recommendations for no pets
+    'Yes': ['PET MEDICAL INSURANCE', 'PERSONAL LIABILITY UMBRELLA POLICY'],
+    'No': [],  # No recommendations for no pets
 
-    'YesVehicle': ['AUTO INSURANCE', 'DISABILITY INSURANCE'],
-    'NoVehicle': [],  # No recommendations for no vehicle
+    'Yes': ['AUTO INSURANCE', 'DISABILITY INSURANCE'],
+    'No': [],  # No recommendations for no vehicle
 
-    'YesHouse': ['HOMEOWNERS INSURANCE POLICY', 'HOSPITAL INCOME POLICY', 'DISABILITY INSURANCE'],
-    'NoHouse': ['RENTERS INSURANCE'],
+    'Yes': ['HOMEOWNERS INSURANCE POLICY', 'HOSPITAL INCOME POLICY', 'DISABILITY INSURANCE'],
+    'No': ['RENTERS INSURANCE'],
 
-    'YesRentalProperty': ['RENTAL PROPERTY INSURANCE', 'PERSONAL LIABILITY UMBRELLA POLICY'],
-    'NoRentalProperty': [],  # No recommendations for no rental property
+    'Yes': ['RENTAL PROPERTY INSURANCE', 'PERSONAL LIABILITY UMBRELLA POLICY'],
+    'No': [],  # No recommendations for no rental property
 
-    'YesJewelryFirearms': ['PERSONAL ARTICLES POLICY'],
-    'NoJewelryFirearms': []  # No recommendations for no jewelry or firearms
+    'Yes': ['PERSONAL ARTICLES POLICY'],
+    'No': []  # No recommendations for no jewelry or firearms
 }
 
 # Helper function to filter out repeated recommendations
@@ -60,8 +62,6 @@ def submit_form():
         email = request.form['email']
         pets = request.form['pets']
         marital_status = request.form['marital_status']
-
-        # Update radio button values as per previous response
         children = request.form['children']
         vehicle = request.form['vehicle']
         house = request.form['house']
@@ -96,16 +96,11 @@ def submit_form():
         # Remove duplicate recommendations
         unique_recommendations = list(set(recommendations))
 
-        # Print recommendations to the console for debugging
-        print("Recommendations:", unique_recommendations)
         # You can add any additional logic or formatting for the email body here
         email_body = f"Name: {name}\nAge: {age}\nEmail: {email}\n\nRecommended Policies:\n"
         for recommendation in unique_recommendations:
             email_body += f"• {recommendation}\n"
-        
 
-
-        # Rest of your code for sending emails
         msg = Message("P.I.P.R.E Results | The Agent's Office", sender='expenditure.cob@gmail.com', recipients=[email, 'expenditure.cob@gmail.com'])
 
         msg.body = email_body
@@ -118,11 +113,7 @@ def submit_form():
         except Exception as e:
             print(e)
 
-        unique_recommendations = list(set(recommendations))
-
-    
-    return render_template('recommedation.html', recommendations=unique_recommendations,name=name)
-    
+        return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=False)

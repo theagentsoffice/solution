@@ -168,6 +168,13 @@
             padding-right: 5px;
             color: #007bff;
         }
+        h4{
+            color: #0029cb;
+        }
+        h1 {
+            color: #0029cb;
+            font-size: 32px;
+        }
     </style>
 </head>
 <body>
@@ -196,62 +203,19 @@ Engage with The Personalized Insurance Recommendation Engine now and let us do t
             </p>
         </div>
         <div class="right">
-            <form method="post" action="/submit_form">
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" required>
-                <br>
-                <label for="age">Age:</label>
-                <input type="number" name="age" id="age" min="18" max="90" required>
-                <br>
-                <label for="occupation">Occupation:</label>
-                <select name="occupation" id="occupation" required>
-                    <option value="Employed">Employed</option>
-                    <option value="Self-Employed">Self-Employed</option>
-                    <option value="Unemployed">Unemployed</option>
-                </select>
-                <br>
-                <label for="marital_status">Marital Status:</label>
-                <select name="marital_status" id="marital_status" required>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Engaged">Engaged</option>
-                </select>
-                <br>
-                <label>Do You Have Children?</label>
-<input type="radio" name="children" value="YesChildren"> Yes
-<input type="radio" name="children" value="NoChildren"> No
-<br>
-<label>Do You Have Any Pets?</label>
-<input type="radio" name="pets" value="YesPets"> Yes
-<input type="radio" name="pets" value="NoPets"> No
-<br>
-<label>Do You Own a Vehicle?</label>
-<input type="radio" name="vehicle" value="YesVehicle"> Yes
-<input type="radio" name="vehicle" value="NoVehicle"> No
-<br>
-<label>Do You Own a House?</label>
-<input type="radio" name="house" value="YesHouse"> Yes
-<input type="radio" name="house" value="NoHouse"> No
-<br>
-<label>Do You Own Rental Property?</label>
-<input type="radio" name="rental_property" value="YesRentalProperty"> Yes
-<input type="radio" name="rental_property" value="NoRentalProperty"> No
-<br>
-<label>Do You Own Jewelry or Firearms in Excess of $1,000?</label>
-<input type="radio" name="jewelry_firearms" value="YesJewelryFirearms"> Yes
-<input type="radio" name="jewelry_firearms" value="NoJewelryFirearms"> No
-<br>
-                <label>Recent Life Events (Select all that apply):</label>
-                <input type="checkbox" name="life_events" value="Job Change"> Job Change
-                <input type="checkbox" name="life_events" value="Just Married"> Just Married
-                <input type="checkbox" name="life_events" value="Recently Relocated"> Recently Relocated
-                <input type="checkbox" name="life_events" value="Just Bought a Home"> Just Bought a Home
-                <input type="checkbox" name="life_events" value="Just Bought a New Car"> Just Bought a New Car
-                <br>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
-                <input type="submit" value="Submit" id="submitt">
-            </form>
+            <h1>{{name}}'s Policy Recommendations</h1>
+            <h4>Congratulations on taking the first steps towards becoming financially bulletproof against unforeseen disasters and/or financially catastrophic events. 
+                Based on your input, here are the recommended policies you should consider looking into:
+                </h4>
+            <h1>Policy Recommendations</h1>
+    <ul>
+        {% for recommendation in recommendations %}
+            <li>{{ recommendation }}</li>
+        {% endfor %}
+    </ul>
+    <h4>“Keep in mind that this is not a comprehensive list nor does it take into account individual nuances you may want to discuss with your insurance provider.
+        Use the personalized information provided as an intelligent guide, not as an end-all be all, as there may be additional information needed to ensure the results you desire.”
+        </h4>
         </div>
     </div>
 </body>
