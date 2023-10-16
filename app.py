@@ -23,9 +23,11 @@ def index():
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
     if request.method == 'POST':
+         name = request.form['name']
          age = request.form['age']
          occupation = request.form['occupation']
          email = request.form['email']
+         pets = request.form['pets']
          marital_status = request.form['marital_status']
          children = request.form['children']
          vehicle = request.form['vehicle']
@@ -35,18 +37,18 @@ def submit_form():
          life_events = request.form.getlist('life_events')
 
 
-         msg = Message('New Request', sender='expenditure.cob@gmail.com', recipients=[email,'expenditure.cob@gmail.com'])  # Replace with recipient email
+         msg = Message("P.I.P.R.E Results | The Agent's Office", sender='expenditure.cob@gmail.com', recipients=[email,'expenditure.cob@gmail.com'])  # Replace with recipient email
        
        
         # msg.body = f"Email: {email}\nMessage: {occupation}"
         # msg.html = render_template('emailtemplate.html',  # Set the HTML content with variables
         #      email=email,  occupation=occupation)
-         message = f"Age: {age}\nOccupation: {occupation}\nEmail: {email}\nMarital Status: {marital_status}\nChildren: {children}\nVehicle: {vehicle}\nHouse: {house}\nRental Property: {rental_property}\nJewelry/Firearms: {jewelry_firearms}\nLife Events: {', '.join(life_events)}"
+         message = f"Name: {name}\nAge: {age}\nOccupation: {occupation}\nEmail: {email}\nMarital Status: {marital_status}\nChildren: {children}\nPets: {pets}\nVehicle: {vehicle}\nHouse: {house}\nRental Property: {rental_property}\nJewelry/Firearms: {jewelry_firearms}\nLife Events: {', '.join(life_events)}"
 
          msg.body = message
 
         # Render the email template and pass the variables
-         msg.html = render_template('emailtemplate.html', age=age, occupation=occupation, email=email, marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events)
+         msg.html = render_template('emailtemplate.html', name=name,age=age, occupation=occupation, email=email,  pets=pets,marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events)
 
 
 

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <style>
@@ -14,7 +15,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
         .header {
-            background-color: #e74c3c;
+            background-color: #0c9ae1;
             color: #ffffff;
             text-align: center;
             padding: 10px;
@@ -35,26 +36,29 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Insurance Policy</h1>
-            
+            <div class="logo">
+                <img src="{{ url_for('static', filename='Transparent-The-Agents-Office.png') }}" alt="Transparent-The-Agents-Office">
+            </div>
+            <h1>Personalized Insurance Recommendation Engine Results</h1>
         </div>
         <div class="content">
             <h1>Insurance Questionnaire Submission</h1>
-    <p><strong>Age:</strong> {{ age }}</p>
-    <p><strong>Occupation:</strong> {{ occupation }}</p>
-    <p><strong>Email:</strong> {{ email }}</p>
-    <p><strong>Marital Status:</strong> {{ marital_status }}</p>
-    <p><strong>Children:</strong> {{ children }}</p>
-    <p><strong>Vehicle:</strong> {{ vehicle }}</p>
-    <p><strong>House:</strong> {{ house }}</p>
-    <p><strong>Rental Property:</strong> {{ rental_property }}</p>
-    <p><strong>Jewelry/Firearms:</strong> {{ jewelry_firearms }}</p>
-    <p><strong>Life Events:</strong> {{ life_events | join(', ') }}</p>
-            
-    <p>The policy reccomendation has been generated to view click here.</p>
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>Occupation:</strong> {{ occupation }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Marital Status:</strong> {{ marital_status }}</p>
+            <p><strong>Children:</strong> {{ children }}</p>
+            <p><strong>Pets:</strong> {{ pets }}</p>
+            <p><strong>Vehicle:</strong> {{ vehicle }}</p>
+            <p><strong>House:</strong> {{ house }}</p>
+            <p><strong>Rental Property:</strong> {{ rental_property }}</p>
+            <p><strong>Jewelry/Firearms:</strong> {{ jewelry_firearms }}</p>
+            <p><strong>Life Events:</strong> {{ life_events | join(', ') }}</p>
+            <p>The policy recommendation has been generated. To view, click here.</p>
         </div>
         <div class="footer">
-            <p>All Rights Reserved Insurance</p>
+            <p>All Rights Reserved The Agent's Office </p>
         </div>
     </div>
 </body>
