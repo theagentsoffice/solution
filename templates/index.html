@@ -47,6 +47,64 @@
             color: #0029cb; /* Blue text */
             line-height: 1.4; /* Adjust line height */
         }
+        @media only screen and (max-width: 400px) {
+            .left {
+                margin-top: 10px;
+                
+                width: 60%;
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7); /* Transparent white background */
+            
+            
+            color: #0029cb; /* Blue text */
+            .left h1 {
+                
+    text-transform: uppercase;
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: inline;
+    background: linear-gradient(to right, #d7695a, #ff8800, #007bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 4s linear infinite; /* Adjust animation duration and type as needed */
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+
+        .left img {
+            max-width: 400px; /* Adjust the size of your logo */
+        }
+
+        .left p {
+            font-size: 16px;
+            padding: 5px; /* Adjust padding */
+            text-align: center;
+            margin-bottom: 10px;
+
+        }
+
+        .left a {
+            text-decoration: none;
+            color: #007bff; /* Blue text for the link */
+        }
+        .left p {
+            text-decoration: none;
+            color: #000000; /* Blue text for the link */
+        }
+            
+        }
+            
+        }
 
         .left h1 {
     text-transform: uppercase;
