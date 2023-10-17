@@ -125,9 +125,15 @@
             transition: border-color 0.3s;
         }
 
-        input[type="radio"], input[type="checkbox"] {
+        input[type="radio"] {
             margin-right: 10px;
             margin-bottom: 21px;
+            
+           
+        }
+        input[type="checkbox"]{
+            flex-direction: column;
+            vertical-align: top;
         }
 
         input[type="submit"] {
@@ -285,7 +291,7 @@ Engage with The Personalized Insurance Recommendation Engine now and let us do t
                 <label for="age">Age:</label>
                 <input type="number" name="age" id="age" min="18" max="90" required>
                 <br>
-                <label for="occupation">Occupation:</label>
+                <label for="occupation">Employment Status:</label>
                 <select name="occupation" id="occupation" required>
                     <option value="">Select</option>
                     <option value="Employed">Employed</option>
@@ -326,11 +332,11 @@ Engage with The Personalized Insurance Recommendation Engine now and let us do t
 <input type="radio" name="jewelry_firearms" value="NoJewelryFirearms"> No
 <br>
                 <label>Recent Life Events (Select all that apply):</label>
-                <input type="checkbox" name="life_events" value="Job Change"> Job Change
-                <input type="checkbox" name="life_events" value="Just Married"> Just Married
-                <input type="checkbox" name="life_events" value="Recently Relocated"> Recently Relocated
-                <input type="checkbox" name="life_events" value="Just Bought a Home"> Just Bought a Home
-                <input type="checkbox" name="life_events" value="Just Bought a New Car"> Just Bought a New Car
+                <input type="checkbox" name="life_events" value="Job Change"> Job Change <br>
+                <input type="checkbox" name="life_events" value="Just Married"> Just Married <br>
+                <input type="checkbox" name="life_events" value="Recently Relocated"> Recently Relocated <br>
+                <input type="checkbox" name="life_events" value="Just Bought a Home"> Just Bought a Home <br>
+                <input type="checkbox" name="life_events" value="Just Bought a New Car"> Just Bought a New Car <br>
                 <br>
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" required>
