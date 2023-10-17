@@ -182,6 +182,17 @@
             color: #0029cb;
             font-size: 32px;
         }
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9); /* Background color with transparency */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -251,6 +262,11 @@ Additional Resources: <br>
 
         </h4>
         </div>
+        </div>
+        <div class="preloader">
+            
+            <img src="{{ url_for('static', filename='animation.gif') }}" alt="Animation">
+
         </div>
     </div>
 </body>
