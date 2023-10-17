@@ -30,10 +30,10 @@ policy_recommendations = {
     'YesPets': ['PET MEDICAL INSURANCE', 'PERSONAL LIABILITY UMBRELLA POLICY'],
     'NoPets': [],  # No recommendations for no pets
 
-    'YesVehicle': ['AUTO INSURANCE', 'DISABILITY INSURANCE'],
+    'YesVehicle': ['AUTO INSURANCE'],
     'NoVehicle': [],  # No recommendations for no vehicle
 
-    'YesHouse': ['HOMEOWNERS INSURANCE POLICY', 'HOSPITAL INCOME POLICY', 'DISABILITY INSURANCE'],
+    'YesHouse': ['HOMEOWNERS INSURANCE POLICY', 'HOSPITAL INCOME POLICY'],
     'NoHouse': ['RENTERS INSURANCE'],
 
     'YesRentalProperty': ['RENTAL PROPERTY INSURANCE', 'PERSONAL LIABILITY UMBRELLA POLICY'],
@@ -69,6 +69,8 @@ def submit_form():
         jewelry_firearms = request.form['jewelry_firearms']
         life_events = request.form.getlist('life_events')
 
+
+        state = request.form['state']
         # Generate policy recommendations based on user inputs
         recommendations = []
 
@@ -111,7 +113,7 @@ def submit_form():
         msg.body = email_body
 
         # You can customize the email template as needed
-        msg.html = render_template('emailtemplate.html', name=name,age=age, occupation=occupation,recommendations=unique_recommendations, email=email,  pets=pets,marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events)
+        msg.html = render_template('emailtemplate.html', name=name,age=age, occupation=occupation,recommendations=unique_recommendations, email=email,  pets=pets,marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events,state=state)
 
         try:
             mail.send(msg)

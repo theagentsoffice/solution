@@ -28,8 +28,9 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             width: 80%;
+            overflow: hidden;
             background: rgba(255, 255, 255, 0.9); /* Glass effect with transparency */
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -94,6 +95,12 @@
         .right {
             flex: 1;
             padding: 20px;
+            overflow-y: auto;
+            
+        }
+        .right-container {
+            flex: 1;
+            overflow-y: auto; /* Enable vertical scrolling for the right side */
         }
 
         form {
@@ -202,6 +209,7 @@ Engage with The Personalized Insurance Recommendation Engine now and let us do t
                 We uphold the highest standards in data protection and discretion. For an in-depth understanding of our meticulous privacy practices, we invite you to review our <a href="https://theagentsoffice.com/privacy-policy">Privacy Policy. </a>
             </p>
         </div>
+        <div class="right-container">
         <div class="right">
             <h1>{{name}}'s Policy Recommendations</h1>
             <h4>Congratulations on taking the first steps towards becoming financially bulletproof against unforeseen disasters and/or financially catastrophic events. 
@@ -216,6 +224,33 @@ Engage with The Personalized Insurance Recommendation Engine now and let us do t
     <h4>“Keep in mind that this is not a comprehensive list nor does it take into account individual nuances you may want to discuss with your insurance provider.
         Use the personalized information provided as an intelligent guide, not as an end-all be all, as there may be additional information needed to ensure the results you desire.”
         </h4>
+        <h4>
+            Next Steps: 
+            <br>
+To ensure these recommendations align perfectly with your unique needs and circumstances, we recommend taking the following steps: <br>
+1. Contact Us for Personalized Guidance <br>
+Our team of experienced insurance advisors is here to provide you with expert guidance tailored to your specific situation. We understand that insurance decisions are important and can be complex. By reaching out to us, you can benefit from our expertise and receive personalized recommendations that consider all your needs. <br>
+2. Get a Quote <br>
+If you're ready to explore these insurance policies further and obtain a detailed quote, we can assist you in obtaining quotes from our trusted insurance partners. We'll work to find you the best rates while ensuring your coverage matches your requirements. Simply<a href="mailto:george@theagentsoffice.com?subject=QUOTE%20ME&body=Please%20provide%20your%20relevant%20contact%20information,%20name,%20and%20address.">
+    CLICK HERE
+  </a><br>
+  
+Contacting Us is Easy: <br>
+You can reach our friendly team by email us at results@theagentsoffice.com or by filling out the <a href="https://theagentsoffice.com/contact/">form here</a>. <br> 
+We're here to make the insurance process straightforward and stress-free. Your financial security and peace of mind is our top priorities. We look forward to assisting you in finding the insurance solutions that best meet your needs. <br>
+Disclaimer: <br>
+Keep in mind that this is not a comprehensive list, nor does it take into account individual nuances you may want to discuss with your insurance provider. <br>
+Use the personalized information provided as an intelligent guide, not as an end-all be all, as there may be additional information needed to ensure the results you desire. <br>
+Additional Resources: <br>
+<a href="https://theagentsoffice.com/prepare-for-the-worst/">Prepare for the Worst: Unpacking the Psychology Behind Preparedness</a><br>
+<a href="https://theagentsoffice.com/use-life-insurance-to-create-generational-wealth/">How To Use Life Insurance to Create Generational Wealth</a><br>
+<a href="https://theagentsoffice.com/how-to-find-the-best-insurance-agent-near-you/">How to Find the Best Insurance Agent Near You: The Ultimate Guide</a><br>
+<a href="https://theagentsoffice.com/7-incredible-tips-for-getting-the-best-auto-insurance-quote/">7 Incredible Tips for Getting the Best Auto Insurance Quote</a>
+
+
+
+        </h4>
+        </div>
         </div>
     </div>
 </body>
