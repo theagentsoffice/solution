@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     
     <title>Insurance Questionnaire</title>
@@ -27,6 +27,7 @@
 
 
         .container {
+            
             display: flex;
             flex-wrap: wrap;
             width: 80%;
@@ -47,68 +48,12 @@
             color: #0029cb; /* Blue text */
             line-height: 1.4; /* Adjust line height */
         }
-        @media only screen and (max-width: 400px) {
-            .left {
-                margin-top: 10px;
-                
-                width: 60%;
-            flex: 1;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7); /* Transparent white background */
-            
-            
-            color: #0029cb; /* Blue text */
-            .left h1 {
-                
-    text-transform: uppercase;
-    font-size: 32px;
-    margin-bottom: 10px;
-    display: inline;
-    background: linear-gradient(to right, #d7695a, #ff8800, #007bff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradientMove 4s linear infinite; /* Adjust animation duration and type as needed */
-}
-
-@keyframes gradientMove {
-    0% {
-        background-position: 100% 0;
-    }
-    100% {
-        background-position: -100% 0;
-    }
-}
-
-
-        .left img {
-            max-width: 400px; /* Adjust the size of your logo */
-        }
-
-        .left p {
-            font-size: 16px;
-            padding: 5px; /* Adjust padding */
-            text-align: center;
-            margin-bottom: 10px;
-
-        }
-
-        .left a {
-            text-decoration: none;
-            color: #007bff; /* Blue text for the link */
-        }
-        .left p {
-            text-decoration: none;
-            color: #000000; /* Blue text for the link */
-        }
-            
-        }
-            
-        }
+      
+         
 
         .left h1 {
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 10px;
     display: inline;
     background: linear-gradient(to right, #d7695a, #ff8800, #007bff);
@@ -226,6 +171,82 @@
             padding-right: 5px;
             color: #007bff;
         }
+        @media only screen and (max-width: 500px) {
+            .left img {
+        max-width: 100%; /* Make the image responsive for mobile */
+        height: auto; /* Maintain the image's aspect ratio */
+    }
+
+            .container {
+                margin-top: 1800px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.9); /* Glass effect with transparency */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .left {
+                margin-top: 10px;
+                
+                width: 60%;
+                
+                display: block;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7); /* Transparent white background */
+  
+            
+            color: #0029cb; /* Blue text */
+            }
+            .left h2 {
+                display: block !important;
+
+            }
+            .left h1 {
+                
+    text-transform: uppercase;
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: inline;
+    background: linear-gradient(to right, #d7695a, #ff8800, #007bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 4s linear infinite; /* Adjust animation duration and type as needed */
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+
+       
+
+        .left p {
+            font-size: 16px;
+            padding: 5px; /* Adjust padding */
+            text-align: center;
+            margin-bottom: 10px;
+
+        }
+
+        .left a {
+            text-decoration: none;
+            color: #007bff; /* Blue text for the link */
+        }
+        .left p {
+            text-decoration: none;
+            color: #000000; /* Blue text for the link */
+        }
+            
+        }
+            
     </style>
 </head>
 <body>
@@ -248,6 +269,7 @@ To enhance your experience, The P.I.P.R.E will promptly display your results and
 
 
 Engage with The Personalized Insurance Recommendation Engine now and let us do the work for you!
+
 </h2>
             <p>
                 We uphold the highest standards in data protection and discretion. For an in-depth understanding of our meticulous privacy practices, we invite you to review our <a href="https://theagentsoffice.com/privacy-policy">Privacy Policy. </a>
