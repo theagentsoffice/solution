@@ -253,7 +253,20 @@
             color: #000000; /* Blue text for the link */
         }
             
+    }
+
+    .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9); /* Background color with transparency */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+        
             
     </style>
 </head>
@@ -348,6 +361,20 @@ Engage with The Personalized Insurance Policy Recommendation Engine now and let 
                 <input type="submit" value="Submit" id="submitt">
             </form>
         </div>
+        <div id="preloader" class="preloader">
+            
+            <img src="{{ url_for('static', filename='animation.gif') }}" alt="Animation">
+
+        </div>
+        <script>
+            // Function to hide the preloader
+            function hidePreloader() {
+                document.getElementById('preloader').style.display = 'none';
+            }
+        
+            // Use the window.onload event to call the hidePreloader function
+            window.onload = hidePreloader;
+        </script>
     </div>
 </body>
 </html>

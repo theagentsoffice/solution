@@ -263,11 +263,20 @@ Additional Resources: <br>
         </h4>
         </div>
         </div>
-        <div class="preloader">
+        <div id="preloader" class="preloader">
             
             <img src="{{ url_for('static', filename='animation.gif') }}" alt="Animation">
 
         </div>
+        <script>
+            // Function to hide the preloader
+            function hidePreloader() {
+                document.getElementById('preloader').style.display = 'none';
+            }
+        
+            // Use the window.onload event to call the hidePreloader function
+            window.onload = hidePreloader;
+        </script>
     </div>
 </body>
 </html>
