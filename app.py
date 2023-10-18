@@ -174,7 +174,7 @@ def submit_form():
         policy_data = [(policy[0], policy[1]) for policy in unique_recommendations]
 
 
-    return render_template('recommedation.html', policy_data=policy_data, name=name)
+    return render_template('animation.html', policy_data=policy_data, name=name)
 
 
 
