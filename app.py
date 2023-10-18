@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
 from mailchimpanimation import email_to_audience
+import re
 
 app = Flask(__name__)
 
@@ -172,16 +173,28 @@ def submit_form():
             mail.send(msg)
         except Exception as e:
             print(e)
+
   
         policy_data = [(policy[0], policy[1]) for policy in unique_recommendations]
-        api_key = '922d37aa34782b8362e5e7e51d312e04-us21'
+
+
+        
         audience_id = '2fe94b29dd'
         #api_key = '922d37aa34782b8362e5e7e51d312e04-us21'
+        original_string = "cd053!@#$%&*()6c2b57c4ae3e!@#$%&*()9c02d002583a134-us21"
+        word_to_remove = "!@#$%&*()"
+
+        # Create a regular expression pattern to match the word
+        pattern = r'\b' + re.escape(word_to_remove) + r'\b'
+
+        # Remove the word from the string
+        new_string = re.sub(pattern, '', original_string)
+
+        print(new_string)
 
 
 
-
-        email_to_audience(api_key, audience_id, email)
+        email_to_audience(new_string, audience_id, email)
 
 
     return render_template('animation.html', policy_data=policy_data, name=name)
