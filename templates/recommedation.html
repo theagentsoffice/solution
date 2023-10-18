@@ -254,11 +254,22 @@
                 Based on your input, here are the recommended policies you should consider looking into:
                 </h4>
 
-    <ul>
-        {% for recommendation in recommendations %}
-            <li>{{ recommendation }}</li>
-        {% endfor %}
-    </ul>
+                
+                <ul>
+                    {% for policy, description in policy_data %}
+                    <li>{{ policy }}</li>
+                    <p>{{ description }}</p>
+                    {% endfor %}
+                </ul>
+
+                    
+                    <!-- <p>Policy Descriptions:</p>
+                    <ul>
+                        {% for description in descriptions %}
+                        <li>{{ description }}</li>
+                        {% endfor %}
+                    </ul>
+                </ul> -->
     <h4>“Keep in mind that this is not a comprehensive list nor does it take into account individual nuances you may want to discuss with your insurance provider.
         Use the personalized information provided as an intelligent guide, not as an end-all be all, as there may be additional information needed to ensure the results you desire.”
         </h4>
