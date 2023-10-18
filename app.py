@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
+from mailchimpanimation import email_to_audience
 
 app = Flask(__name__)
 
@@ -24,6 +25,7 @@ policy_recommendations = {
         ('LIFE INSURANCE', 'Life insurance provides financial security for your loved ones. In the event of your passing, it preserves the memory of your legacy by covering expenses, paying off debts, offering peace of mind, and ensuring generational wealth creation.')
     ],
     'UNEMPLOYED': [],
+    'RETIRED': [],
 
     'SINGLE': [],
     'MARRIED': [
@@ -172,6 +174,14 @@ def submit_form():
             print(e)
   
         policy_data = [(policy[0], policy[1]) for policy in unique_recommendations]
+        api_key = '922d37aa34782b8362e5e7e51d312e04-us21'
+        audience_id = '2fe94b29dd'
+        #api_key = '922d37aa34782b8362e5e7e51d312e04-us21'
+
+
+
+
+        email_to_audience(api_key, audience_id, email)
 
 
     return render_template('animation.html', policy_data=policy_data, name=name)
