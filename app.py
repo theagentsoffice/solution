@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
 
+
 app = Flask(__name__)
 
 app.secret_key = 'klajdokfjwoeijoigjodjf5498wfej38eruf9'
@@ -43,6 +44,7 @@ policy_recommendations = {
     'NoJewelryFirearms': []  # No recommendations for no jewelry or firearms
 }
 
+        
 # Helper function to filter out repeated recommendations
 def unique_recommendations(recommendations, existing_recommendations):
     return [r for r in recommendations if r not in existing_recommendations]
@@ -121,6 +123,8 @@ def submit_form():
             print(e)
 
         unique_recommendations = list(set(recommendations))
+
+        
 
     
     return render_template('recommedation.html', recommendations=unique_recommendations,name=name)

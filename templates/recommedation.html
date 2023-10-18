@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     
     <title>Insurance Questionnaire</title>
@@ -28,9 +28,9 @@
 
         .container {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             width: 80%;
-            overflow: hidden;
+            
             background: rgba(255, 255, 255, 0.9); /* Glass effect with transparency */
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -51,7 +51,7 @@
 
         .left h1 {
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 10px;
     display: inline;
     background: linear-gradient(to right, #d7695a, #ff8800, #007bff);
@@ -95,86 +95,28 @@
         .right {
             flex: 1;
             padding: 20px;
-            overflow-y: auto;
+            
             
         }
         .right-container {
             flex: 1;
-            overflow-y: auto; /* Enable vertical scrolling for the right side */
+             /* Enable vertical scrolling for the right side */
         }
 
-        form {
-            max-width: 500px; /* Increased form width */
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+       
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+        
+        
 
-        select, input[type="text"], input[type="email"], input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            transition: border-color 0.3s;
-        }
+       
 
-        input[type="radio"], input[type="checkbox"] {
-            margin-right: 10px;
-            margin-bottom: 21px;
-        }
+        
 
-        input[type="submit"] {
-            background-color: #007bff; /* Blue color */
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            position: relative;
-        }
+       
 
-        input[id="submitt"]::before {
-            content: "\f072"; /* Unicode for airplane icon */
-            font-family: "Font Awesome 5 Free";
-            margin-right: 10px;
-        }
+       
 
-        input[type="submit"]:hover {
-            background-color: #0056b3; /* Darker blue color on hover */
-        }
-
-        input[type="submitt"]:hover::before {
-            transform: rotate(45deg);
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="number"]:focus,
-        select:focus {
-            border-color: #007bff;
-        }
-
-        input[type="radio"]:hover,
-        input[type="checkbox"]:hover {
-            transform: scale(1.1);
-        }
-
-        input[type="radio"]:checked::before {
-            content: "\2713";
-            font-size: 16px;
-            padding-right: 5px;
-            color: #007bff;
-        }
+        
         h4{
             color: #0029cb;
         }
@@ -193,6 +135,89 @@
             justify-content: center;
             align-items: center;
         }
+        .h5 {
+                color: #0029cb; /* Blue text */
+                font-size: medium;
+
+            }
+
+        @media only screen and (max-width: 500px) {
+            .left img {
+        max-width: 100%; /* Make the image responsive for mobile */
+        height: auto; /* Maintain the image's aspect ratio */
+    }
+
+            .container {
+              margin-top: 2200px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.9); /* Glass effect with transparency */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .left {
+                margin-top: 10px;
+                
+                width: 60%;
+                
+                display: block;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7); /* Transparent white background */
+  
+            
+            color: #0029cb; /* Blue text */
+            }
+            .left h2 {
+                display: block !important;
+
+            }
+            
+            .left h1 {
+                
+    text-transform: uppercase;
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: inline;
+    background: linear-gradient(to right, #d7695a, #ff8800, #007bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 4s linear infinite; /* Adjust animation duration and type as needed */
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+
+       
+
+        .left p {
+            font-size: 16px;
+            padding: 5px; /* Adjust padding */
+            text-align: center;
+            margin-bottom: 10px;
+
+        }
+
+        .left a {
+            text-decoration: none;
+            color: #007bff; /* Blue text for the link */
+        }
+        .left p {
+            text-decoration: none;
+            color: #000000; /* Blue text for the link */
+        }
+            
+    }
+
     </style>
 </head>
 <body>
@@ -203,19 +228,21 @@
 
             <img src="{{ url_for('static', filename='Transparent-The-Agents-Office.png') }}" alt="Transparent-The-Agents-Office">
             <h1>
-                Welcome to our "Personalized Insurance Policy Recommendation Engine"
+                 "Personalized Insurance Policy Recommendation Engine"
             </h1>
             <h2>
-                Simply input a few details and our engine springs into action, culminating in results intended to make you bulletproof.
+               
 
 
 
-To enhance your experience, The P.I.P.R.E will promptly display your results and deliver them directly to your inbox.
-
-
-
-Engage with The Personalized Insurance Recommendation Engine now and let us do the work for you!
-</h2>
+                To enhance your experience, The P.I.P.R.E will promptly display your results and deliver them directly to your inbox.
+                
+                
+                
+                <br> <span> </span>
+                Engage with The Personalized Insurance Policy Recommendation Engine now and let us do the work for you!
+                
+                </h2>
             <p>
                 We uphold the highest standards in data protection and discretion. For an in-depth understanding of our meticulous privacy practices, we invite you to review our <a href="https://theagentsoffice.com/privacy-policy">Privacy Policy. </a>
             </p>
@@ -236,7 +263,7 @@ Engage with The Personalized Insurance Recommendation Engine now and let us do t
         Use the personalized information provided as an intelligent guide, not as an end-all be all, as there may be additional information needed to ensure the results you desire.”
         </h4>
         <h4>
-            Next Steps: 
+           Next Steps:  
             <br>
 To ensure these recommendations align perfectly with your unique needs and circumstances, we recommend taking the following steps: <br>
 1. Contact Us for Personalized Guidance <br>
