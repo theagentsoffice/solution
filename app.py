@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
 from mailchimpanimation import email_to_audience
 import re
+from mailsend import send_email_to_mailchimp
+
+
 
 app = Flask(__name__)
 
@@ -101,6 +104,18 @@ policy_recommendations = {
     ]
 }
 
+from mailsend import send_email_to_mailchimp
+
+
+
+# Inside your Flask application
+def read_html_template(file_path):
+    with open(file_path, "r", encoding="utf-8") as html_file:
+        return html_file.read()
+
+
+# Replace 'file_path' with the actual path to your HTML template file
+html_content = read_html_template('templates/emailtemplate.html')
 
 # Helper function to filter out repeated recommendations
 def unique_recommendations(recommendations, existing_recommendations):
@@ -168,6 +183,7 @@ def submit_form():
         msg = Message("P.I.P.R.E Results | The Agent's Office", sender='expenditure.cob@gmail.com', recipients=[email, 'expenditure.cob@gmail.com'])
         msg.body = email_body
         msg.html = render_template('emailtemplate.html', name=name, age=age, occupation=occupation, recommendations=unique_recommendations, email=email, pets=pets, marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events, state=state,policy_data=policy_data)
+        html_content=render_template('emailtemplate.html', name=name, age=age, occupation=occupation, recommendations=unique_recommendations, email=email, pets=pets, marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events, state=state,policy_data=policy_data)
 
         try:
             mail.send(msg)
@@ -191,9 +207,8 @@ def submit_form():
         new_string = re.sub(pattern, '', original_string)
 
         print(new_string)
-
-
-
+        recipient_email = email
+        send_email_to_mailchimp(html_content, recipient_email)
         email_to_audience(new_string, audience_id, email)
 
 
