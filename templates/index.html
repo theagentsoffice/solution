@@ -17,6 +17,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-attachment: fixed;
+    
     
 }
 
@@ -95,6 +97,7 @@
         }
 
         .right {
+            
             flex: 1;
             padding: 20px;
         }
@@ -104,6 +107,7 @@
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
+            font-size: 19px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -116,6 +120,7 @@
 
         select, input[type="text"], input[type="email"], input[type="number"] {
             width: 100%;
+            font-size: 19px;
             padding: 10px;
             border: 1px solid #ccc;
             box-sizing: border-box;
@@ -128,6 +133,7 @@
         input[type="radio"] {
             margin-right: 10px;
             margin-bottom: 21px;
+            font-size: 19px;
             
            
         }
@@ -179,6 +185,13 @@
             padding-right: 5px;
             color: #007bff;
         }
+        @media only screen and (min-width: 800px){
+            form{
+                overflow-y: auto; 
+    max-height: 80vh;
+            }
+
+        }
         @media only screen and (max-width: 500px) {
             .left img {
         max-width: 100%; /* Make the image responsive for mobile */
@@ -186,7 +199,7 @@
     }
 
             .container {
-              margin-top: 1700px;
+              margin-top: 1600px;
             display: flex;
             flex-wrap: wrap;
             width: 80%;
@@ -378,5 +391,6 @@ Engage with The Personalized Insurance Policy Recommendation Engine now and let 
             window.onload = hidePreloader;
         </script>
     </div>
+    <script></script>
 </body>
 </html>
