@@ -130,6 +130,7 @@ def submit_form():
     if request.method == 'POST':
         name = request.form['name']
         age = request.form['age']
+        age=int(age)
         occupation = request.form['occupation']
         email = request.form['email']
         pets = request.form['pets']
@@ -174,16 +175,179 @@ def submit_form():
 
         # Prepare email body
         email_body = f"Name: {name}\nAge: {age}\nEmail: {email}\n\nRecommended Policies:\n"
+        recommendpolicy=[]
+        
+        
         for policy, description in unique_recommendations:
             email_body += f"• {policy}: {description}\n"
 
         policy_data = [(policy[0], policy[1]) for policy in unique_recommendations]
+        recommendpolicy = [(policy[0]) for policy in unique_recommendations]
+        print(recommendpolicy)
+        
+
+        policy_data = {
+    '0-30': {
+        'LIFE INSURANCE': {
+            'Definition': "Life insurance provides financial protection to beneficiaries in the event of the policyholder's death.",
+            'Reason': ["Younger adults (late teens to early 30s) often have dependents such as children, spouses, or aging parents."],
+            'Example': "Sarah, 28, recently had her first child. If something were to happen to her, the life insurance payout would help secure the child's future and cover immediate expenses."
+        },
+        'DISABILITY INSURANCE': {
+            'Definition': "This covers a portion of your income if you're unable to work due to an illness or injury.",
+            'Reason': ["Young adults entering the workforce face the risk of accidents or illnesses that could disrupt their income flow."],
+            'Example': "Jake, 25, breaks his leg in a skiing accident. His disability insurance helps cover his living expenses while he recovers and can't work."
+        },
+        'AUTO INSURANCE': {
+            'Definition': "Covers financial losses due to vehicle accidents or theft.",
+            'Reason': ["Many people in this age bracket are buying their first cars and learning to drive. They're statistically more prone to accidents."],
+            'Example': "Mia, 19, accidentally rear-ends another car. Her auto insurance helps cover the damage."
+        },
+        'HOMEOWNERS INSURANCE POLICY': {
+            'Definition': "Protects against damage to one's home and its contents.",
+            'Reason': ["Young adults might purchase their first home in this age range."],
+            'Example': "Alex, 30, has a tree fall on his house during a storm. His insurance helps cover repairs."
+        },
+        'RENTERS INSURANCE': {
+            'Definition': "Covers damage or loss of personal property for those renting a living space.",
+            'Reason': ["Most young adults start by renting apartments or homes. This insurance helps protect their belongings."],
+            'Example': "Jordan, 23, has his apartment broken into and several items stolen. Renters insurance helps replace those items."
+        },
+        'PERSONAL ARTICLES POLICY': {
+            'Definition': "Insures specific valuable items, such as jewelry or musical instruments.",
+            'Reason': ["Some young adults might have valuable items from family inheritances or personal acquisitions."],
+            'Example': "Zoe, 26, is a musician with an expensive guitar. She gets it insured separately due to its value."
+        },
+        'HOSPITAL INCOME POLICY': {
+            'Definition': "Provides a daily stipend if hospitalized.",
+            'Reason': ["Even young adults can face hospitalizations. Having a daily payout can help cover out-of-pocket expenses."],
+            'Example': "Liam, 29, has an appendectomy and needs to stay in the hospital for several days. His policy helps cover incidental costs."
+        },
+        'PERSONAL LIABILITY UMBRELLA POLICY': {
+            'Definition': "Provides additional liability coverage above what's offered by homeowners or auto insurance.",
+            'Reason': ["Young adults often host gatherings or travel, which can expose them to liability risks."],
+            'Example': "Ava, 27, hosts a party at her rented apartment. A guest gets injured. Her umbrella policy helps cover potential liabilities beyond her basic coverage."
+        },
+        'PET MEDICAL INSURANCE': {
+            'Definition': "Covers medical expenses for pets.",
+            'Reason': ["Many young adults adopt pets, which can have unexpected medical needs."],
+            'Example': "Ethan, 31, adopts a dog which then needs surgery. Pet medical insurance helps cover the costs."
+        },
+    },
+    '31-60': {
+        'LIFE INSURANCE': {
+            'Definition': "Life insurance is a contract between an individual and an insurance company, where the insurer promises to pay a sum of money to beneficiaries upon the death of the insured.",
+            'Reason': ["Most people in the 31-60 age bracket are in their prime working years. They often have dependents—like children, spouses, or even aging parents."],
+            'Example': "A 40-year-old with young children might buy life insurance to ensure that their kids can go to college if something happens to them."
+        },
+        'DISABILITY INSURANCE': {
+            'Definition': "It's insurance that will provide income should you become disabled and unable to work.",
+            'Reason': ["This age group is heavily reliant on their income, whether it's for supporting a family, paying off debts, or saving for retirement."],
+            'Example': "A 35-year-old construction worker might get this insurance because their job is physically demanding."
+        },
+        'AUTO INSURANCE': {
+            'Definition': "It covers your potential liabilities while operating a vehicle, including damages to others or their property.",
+            'Reason': ["Individuals between 31-60 are often on the roads, driving kids around, commuting, or taking trips."],
+            'Example': "A 45-year-old might need it not just for daily commutes, but also for those family road trips."
+        },
+        'HOMEOWNERS INSURANCE POLICY': {
+            'Definition': "This insurance covers damages to your house and belongings inside, as well as potential liabilities.",
+            'Reason': ["Many in this age bracket own homes."],
+            'Example': "If a storm damages a 52-year-old's roof, homeowners insurance can help cover repairs."
+        },
+        'RENTERS INSURANCE': {
+            'Definition': "This covers damages to or theft of personal property in a rented space.",
+            'Reason': ["Not everyone in this age range owns a home; many rent apartments or houses."],
+            'Example': "If a 33-year-old's apartment gets burglarized, renters insurance can cover the loss."
+        },
+        'PERSONAL ARTICLES POLICY': {
+            'Definition': "This insurance covers high-value items, like jewelry, art, or electronics.",
+            'Reason': ["Over time, seniors might have collected valuable items like jewelry, art, or antiques."],
+            'Example': "A precious family heirloom gets stolen from a 68-year-old's home. A personal articles policy can compensate for its value."
+        },
+        'HOSPITAL INCOME POLICY': {
+            'Definition': "It provides a daily, weekly, or monthly cash benefit during hospital stays.",
+            'Reason': ["As age progresses, hospital visits might become more frequent."],
+            'Example': "A 90-year-old spends a week in the hospital. Their policy provides daily financial support, easing the strain of medical bills."
+        },
+        'PERSONAL LIABILITY UMBRELLA POLICY': {
+            'Definition': "This provides additional liability coverage above the limits of homeowners, auto, and boat insurance policies.",
+            'Reason': ["Assets and savings have often grown over a lifetime, and this policy can protect against large lawsuits."],
+            'Example': "Someone gets injured on a 78-year-old's property and sues for a high amount. The umbrella policy kicks in where their homeowner’s insurance left off."
+        },
+        'PET MEDICAL INSURANCE': {
+            'Definition': "It helps cover the costs of veterinary care for pets.",
+            'Reason': ["Pets can be especially crucial companions for seniors, offering emotional support."],
+            'Example': "A 64-year-old's beloved cat requires surgery. Pet medical insurance helps cover the costs, ensuring the cat gets the needed care."
+        },
+    },
+    '61-99': {
+        'LIFE INSURANCE': {
+            'Definition': "Life insurance provides financial protection to your beneficiaries (e.g., family members) upon your death.",
+            'Reason': ["As seniors, you might still have financial responsibilities like mortgages, or want to leave an inheritance or gift to loved ones or charities."],
+            'Example': "Imagine you passed away unexpectedly, leaving behind unpaid medical bills. A life insurance policy would help cover these bills, ensuring your family doesn't bear the financial weight."
+        },
+        'DISABILITY INSURANCE': {
+            'Definition': "Disability insurance offers income protection if you become disabled and can't work.",
+            'Reason': ["While many in this age group might be retired, some are still working. The older you get, the more likely health issues can arise that may prevent working."],
+            'Example': "If a 65-year-old still in the workforce suddenly becomes unable to work due to a severe illness, disability insurance can help maintain their lifestyle."
+        },
+        'AUTO INSURANCE': {
+            'Definition': "Auto insurance protects against financial loss in the event of an accident or theft.",
+            'Reason': ["Aging may affect driving abilities, increasing the risk of accidents."],
+            'Example': "A 70-year-old driver gets into a fender bender. Their auto insurance can cover repair costs without affecting their savings."
+        },
+        'HOMEOWNERS INSURANCE': {
+            'Definition': "This insurance covers potential damage to your home and its contents.",
+            'Reason': ["Homes often have accumulated value over time and represent a significant portion of an older individual's net worth."],
+            'Example': "A storm causes a tree to fall on an 80-year-old's house. Homeowners insurance helps cover the repair costs."
+        },
+        'RENTERS INSURANCE': {
+            'Definition': "Renters insurance protects your personal property in a rented residence.",
+            'Reason': ["Seniors might downsize to rental properties or live in senior communities."],
+            'Example': "A fire in a 75-year-old's apartment building damages their belongings. Renters insurance can cover replacement costs."
+        },
+        'PERSONAL ARTICLES POLICY': {
+            'Definition': "This policy covers valuable items that might not be fully covered by standard homeowners or renters insurance.",
+            'Reason': ["Over time, seniors might have collected valuable items like jewelry, art, or antiques."],
+            'Example': "A 44-year-old might insure an heirloom necklace passed down through generations."
+        },
+        'HOSPITAL INCOME POLICY': {
+            'Definition': "Provides a daily allowance for each day you're hospitalized.",
+            'Reason': ["Older age can come with increased hospital stays or medical procedures."],
+            'Example': "A 90-year-old undergoes surgery and spends time in the hospital. Their policy provides daily financial support."
+        },
+        'PERSONAL LIABILITY UMBRELLA POLICY': {
+            'Definition': "Offers extra liability coverage beyond what your other policies provide.",
+            'Reason': ["Assets and savings have often grown over a lifetime, and this policy can protect against large lawsuits."],
+            'Example': "If a 78-year-old causes an accident involving multiple cars, this policy can cover damages beyond their auto insurance limit."
+        },
+        'PET MEDICAL INSURANCE': {
+            'Definition': "Covers veterinary expenses if your pet gets sick or injured.",
+            'Reason': ["Pets can be especially crucial companions for seniors, offering emotional support."],
+            'Example': "A 64-year-old's beloved cat requires surgery. Pet medical insurance helps cover the costs, ensuring the cat gets the needed care."
+        },
+    }
+}
+        dynamic_policy_list=recommendpolicy
+        
+        if age <= 30:
+            age_group = '0-30'
+        elif 31 <= age <= 60:
+            age_group = '31-60'
+        else:
+            age_group = '61-99'
+        selected_policies = {policy: policy_data[age_group][policy] for policy in dynamic_policy_list if policy in policy_data[age_group]}
+        print(selected_policies)
+        age=str(age)
+
+
 
         # Send email
         msg = Message("P.I.P.R.E Results | The Agent's Office", sender='expenditure.cob@gmail.com', recipients=[email, 'expenditure.cob@gmail.com'])
         msg.body = email_body
-        msg.html = render_template('emailtemplate.html', name=name, age=age, occupation=occupation, recommendations=unique_recommendations, email=email, pets=pets, marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events, state=state,policy_data=policy_data)
-        html_content=render_template('emailtemplate.html', name=name, age=age, occupation=occupation, recommendations=unique_recommendations, email=email, pets=pets, marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events, state=state,policy_data=policy_data)
+        msg.html = render_template('emailtemplate.html', name=name, age=age, occupation=occupation, recommendations=unique_recommendations, email=email, pets=pets, marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events, state=state,policy_data=policy_data,policies=selected_policies)
+        html_content=render_template('emailtemplate.html', name=name, age=age, occupation=occupation, recommendations=unique_recommendations, email=email, pets=pets, marital_status=marital_status, children=children, vehicle=vehicle, house=house, rental_property=rental_property, jewelry_firearms=jewelry_firearms, life_events=life_events, state=state,policy_data=policy_data,policies=selected_policies)
 
         try:
             mail.send(msg)

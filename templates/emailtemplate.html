@@ -241,11 +241,21 @@ from, to { border-color: transparent; }
             <p><strong>City & State:</strong> {{state }}</p>
             <Strong>Recommendation:</Strong>
             
-            <p><ul>
-                    {% for policy, description in policy_data %}
-                    <li>{{ policy }}</li>
-                    <p>{{ description }}</p>
+            <p>
+                
+
+                <ul>
+                    {% for policy, data in policies.items() %}
+                        <li>
+                            <h3>{{ policy }}</h3>
+                            <p><strong>Definition:</strong> {{ data['Definition'] }}</p>
+                            <p><strong>Reason:</strong> {{ data['Reason'][0] }}</p>
+                            <p><strong>Example:</strong> {{ data['Example'] }}</p>
+                        </li>
+                    
+
                     {% endfor %}
+                    
                     </ul></p>
             <h4>“Keep in mind that this is not a comprehensive list nor does it take into account individual nuances you may want to discuss with your insurance provider.
                 Use the personalized information provided as an intelligent guide, not as an end-all be all, as there may be additional information needed to ensure the results you desire.”
