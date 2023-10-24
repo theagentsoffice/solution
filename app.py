@@ -203,7 +203,7 @@ def submit_form():
             'Reason': ["Many people in this age bracket are buying their first cars and learning to drive. They're statistically more prone to accidents."],
             'Example': "Mia, 19, accidentally rear-ends another car. Her auto insurance helps cover the damage."
         },
-        'HOMEOWNERS INSURANCE POLICY': {
+        'HOMEOWNERS INSURANCE': {
             'Definition': "Protects against damage to one's home and its contents.",
             'Reason': ["Young adults might purchase their first home in this age range."],
             'Example': "Alex, 30, has a tree fall on his house during a storm. His insurance helps cover repairs."
@@ -213,7 +213,7 @@ def submit_form():
             'Reason': ["Most young adults start by renting apartments or homes. This insurance helps protect their belongings."],
             'Example': "Jordan, 23, has his apartment broken into and several items stolen. Renters insurance helps replace those items."
         },
-        'PERSONAL ARTICLES POLICY': {
+        'Personal Articles Policy': {
             'Definition': "Insures specific valuable items, such as jewelry or musical instruments.",
             'Reason': ["Some young adults might have valuable items from family inheritances or personal acquisitions."],
             'Example': "Zoe, 26, is a musician with an expensive guitar. She gets it insured separately due to its value."
@@ -235,52 +235,105 @@ def submit_form():
         },
     },
     '31-60': {
-        'LIFE INSURANCE': {
-            'Definition': "Life insurance is a contract between an individual and an insurance company, where the insurer promises to pay a sum of money to beneficiaries upon the death of the insured.",
-            'Reason': ["Most people in the 31-60 age bracket are in their prime working years. They often have dependents—like children, spouses, or even aging parents."],
-            'Example': "A 40-year-old with young children might buy life insurance to ensure that their kids can go to college if something happens to them."
-        },
-        'DISABILITY INSURANCE': {
-            'Definition': "It's insurance that will provide income should you become disabled and unable to work.",
-            'Reason': ["This age group is heavily reliant on their income, whether it's for supporting a family, paying off debts, or saving for retirement."],
-            'Example': "A 35-year-old construction worker might get this insurance because their job is physically demanding."
-        },
-        'AUTO INSURANCE': {
-            'Definition': "It covers your potential liabilities while operating a vehicle, including damages to others or their property.",
-            'Reason': ["Individuals between 31-60 are often on the roads, driving kids around, commuting, or taking trips."],
-            'Example': "A 45-year-old might need it not just for daily commutes, but also for those family road trips."
-        },
-        'HOMEOWNERS INSURANCE POLICY': {
-            'Definition': "This insurance covers damages to your house and belongings inside, as well as potential liabilities.",
-            'Reason': ["Many in this age bracket own homes."],
-            'Example': "If a storm damages a 52-year-old's roof, homeowners insurance can help cover repairs."
-        },
-        'RENTERS INSURANCE': {
-            'Definition': "This covers damages to or theft of personal property in a rented space.",
-            'Reason': ["Not everyone in this age range owns a home; many rent apartments or houses."],
-            'Example': "If a 33-year-old's apartment gets burglarized, renters insurance can cover the loss."
-        },
-        'PERSONAL ARTICLES POLICY': {
-            'Definition': "This insurance covers high-value items, like jewelry, art, or electronics.",
-            'Reason': ["Over time, seniors might have collected valuable items like jewelry, art, or antiques."],
-            'Example': "A precious family heirloom gets stolen from a 68-year-old's home. A personal articles policy can compensate for its value."
-        },
-        'HOSPITAL INCOME POLICY': {
-            'Definition': "It provides a daily, weekly, or monthly cash benefit during hospital stays.",
-            'Reason': ["As age progresses, hospital visits might become more frequent."],
-            'Example': "A 90-year-old spends a week in the hospital. Their policy provides daily financial support, easing the strain of medical bills."
-        },
-        'PERSONAL LIABILITY UMBRELLA POLICY': {
-            'Definition': "This provides additional liability coverage above the limits of homeowners, auto, and boat insurance policies.",
-            'Reason': ["Assets and savings have often grown over a lifetime, and this policy can protect against large lawsuits."],
-            'Example': "Someone gets injured on a 78-year-old's property and sues for a high amount. The umbrella policy kicks in where their homeowner’s insurance left off."
-        },
-        'PET MEDICAL INSURANCE': {
-            'Definition': "It helps cover the costs of veterinary care for pets.",
-            'Reason': ["Pets can be especially crucial companions for seniors, offering emotional support."],
-            'Example': "A 64-year-old's beloved cat requires surgery. Pet medical insurance helps cover the costs, ensuring the cat gets the needed care."
-        },
+    'LIFE INSURANCE': {
+        'Definition': "Life insurance is a contract between an individual and an insurance company, where the insurer promises to pay a sum of money to beneficiaries upon the death of the insured.",
+        'Reason': [
+            "Most people in the 31-60 age bracket are in their prime working years. They often have dependents—like children, spouses, or even aging parents.",
+            "These individuals might have mortgages, car loans, or even student loans that need to be paid off.",
+            "As one progresses through this age range, the risk of health issues or unexpected demise increases."
+        ],
+        'Example':"A 40-year-old with young children might buy life insurance to ensure that their kids can go to college if something happens to them."
+           
+        
     },
+    'DISABILITY INSURANCE': {
+        'Definition': "It's insurance that will provide income should you become disabled and unable to work.",
+        'Reason': [
+            "This age group is heavily reliant on their income, whether it's for supporting a family, paying off debts, or saving for retirement.",
+            "The likelihood of disability due to illness or injury increases with age."
+        ],
+        'Example':"A 35-year-old construction worker might get this insurance because their job is physically demanding."
+           
+        
+    },
+    'AUTO INSURANCE': {
+        'Definition': "It covers your potential liabilities while operating a vehicle, including damages to others or their property.",
+        'Reason': [
+            "Individuals between 31-60 are often on the roads, driving kids around, commuting, or taking trips.",
+            "As assets grow, so does the need to protect against potential lawsuits."
+        ],
+        'Example': 
+            "A 45-year-old might need it not just for daily commutes, but also for those family road trips."
+           
+        
+    },
+    'HOMEOWNERS INSURANCE POLICY': {
+        'Definition': "This insurance covers damages to your house and belongings inside, as well as potential liabilities.",
+        'Reason': [
+            "Many in this age bracket own homes.",
+            "A home is often the most valuable asset someone possesses."
+        ],
+        'Example': 
+            "If a storm damages a 52-year-old's roof, homeowners insurance can help cover repairs."
+           
+        
+    },
+    'RENTERS INSURANCE': {
+        'Definition': "This covers damages to or theft of personal property in a rented space.",
+        'Reason': [
+            "Not everyone in this age range owns a home; many rent apartments or houses.",
+            "They might have accumulated valuable belongings over the years."
+        ],
+        'Example': 
+            "If a 33-year-old's apartment gets burglarized, renters insurance can cover the loss."
+           
+        
+    },
+    'PERSONAL ARTICLES POLICY': {
+        'Definition': "This insurance covers high-value items, like jewelry, art, or electronics.",
+        'Reason': [
+            "Over the years, individuals might acquire more luxury or valuable items.",
+            "These items might not be fully covered under standard homeowners or renters insurance."
+        ],
+        'Example': 
+            "A 44-year-old might insure an heirloom necklace passed down through generations."
+           
+        
+    },
+    'HOSPITAL INCOME POLICY': {
+        'Definition': "It provides a daily, weekly, or monthly cash benefit during hospital stays.",
+        'Reason': [
+            "As age progresses, hospital visits might become more frequent.",
+            "The cash can offset loss of income or out-of-pocket expenses during hospitalization."
+        ],
+        'Example': 
+            "A 58-year-old undergoing surgery might rely on this policy to cover extra costs not handled by health insurance."
+           
+        
+    },
+    'PERSONAL LIABILITY UMBRELLA POLICY': {
+        'Definition': "This provides additional liability coverage above the limits of homeowners, auto, and boat insurance policies.",
+        'Reason': [
+            "As wealth grows, so does the potential target on one's back for lawsuits.",
+            "This age group often has more assets to protect."
+        ],
+        'Example': 
+            "A 46-year-old with a swimming pool might get this in case of an accident involving a guest."
+          
+        
+    },
+    'PET MEDICAL INSURANCE': {
+        'Definition': "It helps cover the costs of veterinary care for pets.",
+        'Reason': [
+            "Pets are often considered part of the family.",
+            "As pets age, their medical needs can grow, and so can the expenses."
+        ],
+        'Example': 
+            "A 42-year-old's dog might need surgery, and the insurance can help offset the high vet bill."
+            
+        
+    }
+},
     '61-99': {
         'LIFE INSURANCE': {
             'Definition': "Life insurance provides financial protection to your beneficiaries (e.g., family members) upon your death.",
@@ -308,9 +361,9 @@ def submit_form():
             'Example': "A fire in a 75-year-old's apartment building damages their belongings. Renters insurance can cover replacement costs."
         },
         'PERSONAL ARTICLES POLICY': {
-            'Definition': "This policy covers valuable items that might not be fully covered by standard homeowners or renters insurance.",
+            'Definition': "This insurance covers high-value items, like jewelry, art, or electronics.",
             'Reason': ["Over time, seniors might have collected valuable items like jewelry, art, or antiques."],
-            'Example': "A 44-year-old might insure an heirloom necklace passed down through generations."
+            'Example': "A precious family heirloom gets stolen from a 68-year-old's home. A personal articles policy can compensate for its value."
         },
         'HOSPITAL INCOME POLICY': {
             'Definition': "Provides a daily allowance for each day you're hospitalized.",
@@ -329,6 +382,7 @@ def submit_form():
         },
     }
 }
+    
         dynamic_policy_list=recommendpolicy
         
         if age <= 30:

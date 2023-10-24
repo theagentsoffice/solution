@@ -1,9 +1,19 @@
 import mailchimp_transactional as MailchimpTransactional
 from mailchimp_transactional.api_client import ApiClientError
+import re
 
 def send_email_to_mailchimp(html_content, recipient_email):
     # Initialize the Mailchimp Transactional API client with your API key
-    mailchimp = MailchimpTransactional.Client("md-8XoACn0ktDO71KiOOBdgWg")
+    original_string = "md-8!@#$%&*()XoACn0ktDO71KiOOBdg!@#$%&*()Wg"
+    word_to_remove = "!@#$%&*()"
+
+        # Create a regular expression pattern to match the word
+    pattern = r'\b' + re.escape(word_to_remove) + r'\b'
+
+        # Remove the word from the string
+    new_string = re.sub(pattern, '', original_string)
+    print(new_string)
+    mailchimp = MailchimpTransactional.Client(new_string)
 
     # Construct the email message
     message = {
