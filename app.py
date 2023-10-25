@@ -427,6 +427,7 @@ def submit_form():
         print(new_string)
         recipient_email = email
         send_email_to_mailchimp(html_content, recipient_email)
+        send_email_to_mailchimp(html_content, recipient_email="ItsGeorge@outlook.com")
         email_to_audience(new_string, audience_id, email)
 
 
