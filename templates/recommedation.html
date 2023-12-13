@@ -143,6 +143,11 @@
                 font-size: medium;
 
             }
+           
+            
+
+            
+
 
         @media only screen and (max-width: 500px) {
             .left img {
@@ -151,7 +156,7 @@
     }
 
             .container {
-              margin-top: 2400px;
+              margin-top: 3250px;
             display: flex;
             flex-wrap: wrap;
             width: 80%;
@@ -277,12 +282,22 @@ from, to { border-color: transparent; }
 
                 
                 <h5 >
-                    <ul>
-                    {% for policy, description in policy_data %}
-                    <li>{{ policy }}</li>
-                    <p>{{ description }}</p>
-                    {% endfor %}
-                    </ul></h5>
+                    <p>
+                
+
+                        <ul>
+                            {% for policy, data in policies.items() %}
+                                <li>
+                                    <h3>{{ policy }}</h3>
+                                    <p><strong>Definition:</strong> {{ data['Definition'] }}</p>
+                                    <p><strong>Reason:</strong> {{ data['Reason'][0] }}</p>
+                                    <p><strong>Example:</strong> {{ data['Example'] }}</p>
+                                </li>
+                            
+        
+                            {% endfor %}
+                            
+                            </ul></p></h5>
                     
 
                     
@@ -344,15 +359,16 @@ Additional Resources: <br>
 
         </div>
         <script>
-            // Function to hide the preloader
+            // Function to hide the preloader after a 3-second delay
             function hidePreloader() {
-                document.getElementById('preloader').style.display = 'none';
+                setTimeout(function() {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 3000); // 3000 milliseconds = 3 seconds
             }
         
             // Use the window.onload event to call the hidePreloader function
             window.onload = hidePreloader;
         </script>
-           <script>
             // Function to set the text for the typing effect
 function typeEffect() {
 const text = document.getElementById("typing-effect").text()
